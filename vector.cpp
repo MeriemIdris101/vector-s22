@@ -16,7 +16,7 @@ Vector::Vector(size_t size) {
     }else{
         _size = size;
         _data = new double[_size];
-        for (int i = 0; i < _size; ++i) {
+        for (size_t i = 0; i < _size; ++i) {
             _data[i] = 0.0;
         }
     }
@@ -29,7 +29,7 @@ Vector::Vector(double *data, size_t size) {
     }else{
         _size = size;
         _data = new double[_size];
-        for (int i = 0; i < _size; ++i) {
+        for (size_t i = 0; i < _size; ++i) {
             _data[i] = data[i];
         }
     }
@@ -42,7 +42,7 @@ Vector::Vector(const Vector &other) {
     }else{
         _size = other._size;
         _data = new double[_size];
-        for (int i = 0; i < _size; ++i) {
+        for (size_t i = 0; i < _size; ++i) {
             _data[i] = other._data[i];
         }
     }
@@ -63,14 +63,14 @@ const Vector &Vector::operator=(const Vector &rhs) {
         return *this;
     }
     if (rhs._size == _size){
-        for (int i = 0; i < _size; ++i) {
+        for (size_t i = 0; i < _size; ++i) {
             _data[i] = rhs._data[i];
         }
     }else{
         delete[] _data;
         _size = rhs._size;
         _data = new double[_size];
-        for (int i = 0; i < _size; ++i) {
+        for (size_t i = 0; i < _size; ++i) {
             _data[i] = rhs._data[i];
         }
     }
@@ -82,7 +82,7 @@ const Vector Vector::Sum(const Vector &rhs) const {
         return Vector(0);
     }
     Vector retVal(_size);
-    for (int i = 0; i < _size; ++i) {
+    for (size_t i = 0; i < _size; ++i) {
         retVal._data[i] = _data[i] + rhs._data[i];
     }
     return retVal;
@@ -93,7 +93,7 @@ const Vector Vector::Sub(const Vector &rhs) const {
         return Vector(0);
     }
     Vector retVal(_size);
-    for (int i = 0; i < _size; ++i) {
+    for (size_t i = 0; i < _size; ++i) {
         retVal._data[i] = _data[i] - rhs._data[i];
     }
     return retVal;
@@ -102,7 +102,7 @@ const Vector Vector::Sub(const Vector &rhs) const {
 bool Vector::Equals(const Vector &rhs) const {
     if (_size != rhs._size)
         return false;
-    for (int i = 0; i < _size; ++i) {
+    for (size_t i = 0; i < _size; ++i) {
         if (_data[i] != rhs._data[i])
             return false;
     }
@@ -113,7 +113,7 @@ double Vector::Distance(const Vector &rhs) const {
     if (_size != rhs._size)
         return -1;
     double sum = 0;
-    for (int i = 0; i < _size; ++i) {
+    for (size_t i = 0; i < _size; ++i) {
         sum += pow(_data[i] - rhs._data[i], 2);
     }
     return sqrt(sum);
@@ -122,7 +122,7 @@ double Vector::Distance(const Vector &rhs) const {
 string Vector::ToString() const {
     stringstream ss;
     ss << "[";
-    for (int i = 0; i < _size; ++i) {
+    for (size_t i = 0; i < _size; ++i) {
         if (i != _size - 1)
             ss << _data[i] << ", ";
         else
@@ -133,7 +133,7 @@ string Vector::ToString() const {
 
 ostream &Vector::Write(ostream &output) const {
     output << _size << " ";
-    for (int i = 0; i < _size; ++i) {
+    for (size_t i = 0; i < _size; ++i) {
         output << _data[i] << " ";
     }
     return output;
@@ -148,7 +148,7 @@ istream &Vector::Read(istream &input)  {
         delete[] _data;
         _size = inputSize;
         _data = new double [_size];
-        for (int i = 0; i < _size; ++i) {
+        for (size_t i = 0; i < _size; ++i) {
             input >> _data[i];
             if (input.fail())
                 return input;
