@@ -28,15 +28,28 @@ int main() {
     Test(a.Equals(d) == true, "Equals works 1", passedTests);
     Test(a.Equals(a) == true, "Equals works 2", passedTests);
     Test(a.Equals(b) == false, "Equals works 3", passedTests);
+
+    Test(a == d, "== works 1", passedTests);
+    Test(a == a, "== works 2", passedTests);
+    Test(a != b, "!= works 3", passedTests);
+
+
     d = a.Sum(b);
     Test(d.ToString() == "[10, 3]", "Sum worked 1", passedTests);
+    d = a + b;
+    Test(d.ToString() == "[10, 3]", "+ worked 1", passedTests);
     d = a.Sum(c);
     Test(!d.IsValid(), "Sum different size vector worked", passedTests);
+    d = a + c;
+    Test(!d.IsValid(), "+ different size vector worked", passedTests);
+
 
     cout << a.ToString() << endl;
     cout << a[0] << endl;
     a[0] = 7;
     cout << a.ToString() << endl;
+
+
 
 
     return 0;

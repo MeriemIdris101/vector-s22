@@ -172,3 +172,19 @@ double &Vector::operator[](size_t index) {
 const double &Vector::operator[](size_t index) const {
     return _data[index];
 }
+
+bool Vector::operator==(const Vector &rhs) const {
+    return Equals(rhs);
+}
+
+bool Vector::operator!=(const Vector &rhs) const {
+    return !Equals(rhs);
+}
+
+const Vector Vector::operator+(const Vector &rhs) const {
+    return Sum(rhs);
+}
+
+const Vector Vector::operator-(const Vector &rhs) const {
+    return Sub(rhs);
+}

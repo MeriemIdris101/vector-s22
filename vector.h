@@ -37,6 +37,14 @@ public:
 
     double& operator[](size_t index);
     const double& operator[](size_t index)const;
+
+    bool operator==(const Vector& rhs)const;
+    bool operator!=(const Vector& rhs)const;
+
+    const Vector operator+(const Vector& rhs)const;
+    const Vector operator-(const Vector& rhs)const;
+
+
 };
 
 
