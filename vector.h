@@ -34,6 +34,9 @@ public:
 
     size_t GetDimension()const;
     bool IsValid()const;
+
+    double& operator[](size_t index);
+    const double& operator[](size_t index)const;
 };
 
 

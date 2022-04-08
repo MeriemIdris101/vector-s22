@@ -33,6 +33,12 @@ int main() {
     d = a.Sum(c);
     Test(!d.IsValid(), "Sum different size vector worked", passedTests);
 
+    cout << a.ToString() << endl;
+    cout << a[0] << endl;
+    a[0] = 7;
+    cout << a.ToString() << endl;
+
+
     return 0;
 }
 

@@ -164,3 +164,11 @@ size_t Vector::GetDimension() const {
 bool Vector::IsValid() const {
     return _size != 0;
 }
+
+double &Vector::operator[](size_t index) {
+    return _data[index];
+}
+
+const double &Vector::operator[](size_t index) const {
+    return _data[index];
+}
