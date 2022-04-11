@@ -51,6 +51,13 @@ int main() {
 
 
 
+    d=-a;
+    Test(d.ToString() == "[-7, -4]", "The letter d is multiplied by negative 1", passedTests);
+
+    d=a*10;
+    Test(d.ToString() == "[70, 40]", "The letter d is multiplied by the val", passedTests);
+
+
 
     return 0;
 }

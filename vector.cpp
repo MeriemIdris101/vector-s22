@@ -3,7 +3,7 @@
 //
 
 #include "vector.h"
-
+//#include <vector>
 #include <cmath>
 #include <sstream>
 
@@ -156,6 +156,34 @@ istream &Vector::Read(istream &input)  {
     }
     return input;
 }
+
+
+
+//This function multiplies each number by circling through the vector
+const Vector Vector::operator-() {
+    Vector subNum(_size);
+    for(size_t m = 0; m < _size; ++m) {
+        subNum[m] = _data[m]* - 1;
+    }
+    return subNum;
+
+}
+
+const Vector Vector::operator*(double val) const {
+    Vector mulNum(_size);
+    for(size_t m = 0; m < _size; ++m) {
+        mulNum[m] = _data[m]* val;
+    }
+    return mulNum;
+}
+
+
+
+
+
+
+
+
 
 size_t Vector::GetDimension() const {
     return _size;

@@ -44,6 +44,8 @@ public:
     const Vector operator+(const Vector& rhs)const;
     const Vector operator-(const Vector& rhs)const;
 
+    const Vector operator-();
+    const Vector operator*(double val)const;
 
 };
 
